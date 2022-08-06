@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Finalwork</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="form1">
+      <button class="btn_more">Переделай! сначала дорогие</button>
+      <button class="btn_less">Переделай! сначала дешевые</button>
+      <ol class="instruction">
+        <h3>Инструкция</h3>
+        <li>Ввести число вещей</li>
+        <li>Выбрать сортировку ... или не выбрать =)</li>
+        <li>Нажать кнопку "Добавить"</li>
+        <li>Получить результат</li>
+        <li>Новый запрос - через обновление страницы</li>
+      </ol>
+    </div>
+    <div class="form2">
+      <input type="number" class="inputNumber" placeholder="Введите количество вещей (от 1 до 20 )">
+      <select class="selecter" size="1" name="selectSort">
+        <option value="" selected disabled>Выберите сортировку</option>
+        <option value="less$">Сначала дешевле</option>
+        <option value="more$">Сначала дороже</option>
+      </select>
+      <button class="btn">Добавить</button>
+
+    </div>
+  </div>
+  <div class="posts"></div>
+  <script src="./script.js"></script>
+</body>
+
+</html>
