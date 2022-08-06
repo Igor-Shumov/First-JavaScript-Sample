@@ -1,2 +1,4 @@
-# First-JavaScript-Sample
-My first JavaScript sample with receiving data from the server
+## Примитив на чистом JS
+С получением данных с fakestoreapi.com
+Реализована сортировка по стоимости
+Инструкция пользователя на странице =)
