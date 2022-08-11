@@ -1,20 +1,18 @@
 let input = document.querySelector(".inputNumber"),
-  button1 = document.querySelector(".btn"),
   selectSort = document.querySelector(".selecter"),
-  button2 = document.querySelector(".btn_more"),
-  button3 = document.querySelector(".btn_less"),
+  buttonAdd = document.querySelector("#add"),
+  buttonMore = document.querySelector(".more"),
+  buttonLess = document.querySelector(".less"),
+  buttonClear = document.querySelector(".clear"),
   data = (newData = []);
 
-button1.addEventListener("click", buttonClick1);
-button2.addEventListener("click", buttonClick2);
-button3.addEventListener("click", buttonClick3);
+buttonAdd.addEventListener("click", AddProducts);
+buttonMore.addEventListener("click", SortMore);
+buttonLess.addEventListener("click", SortLess);
+buttonClear.addEventListener("click", ClearProducts);
 
-function buttonClick1() {
-  input.value === ""
-    ? alert("Введите число!")
-    : input.value === "0"
-    ? alert("Так не пойдет!")
-    : getList();
+function AddProducts() {
+  input.value === "" ? alert("Введите число от 1 до 20!") : input.value === "0" ? alert("Так не пойдет!") : getList();
   input.value = "";
 }
 async function getList() {
@@ -23,8 +21,15 @@ async function getList() {
   newData = data.map((neW) => {
     return neW;
   });
-  button1.removeEventListener("click", buttonClick1);
   sort();
+  document.querySelector(".f2").style.display="none";
+  document.querySelector(".f1").style.display="flex";
+}
+
+function ClearProducts() {
+  refresh();
+  document.querySelector(".f2").style.display="flex";
+  document.querySelector(".f1").style.display="none";
 }
 
 function sort() {
@@ -37,39 +42,32 @@ function sort() {
 }
 
 function print() {
-  printButton();
   let list = document.querySelector(".posts");
   for (key in newData) {
     list.innerHTML += `
         <div class="post">
           <h3 class="post_header">${newData[key].title}</h3>
-          <strong class="price">Price: $ ${newData[key].price}</strong>
+          <p class="price">Price: $ ${newData[key].price}</p>
           <p class="description">Description: ${newData[key].description}</p>
           <img class="image" src="${newData[key].image}" width="200">
-        </div>`;
+        </div>
+        `;
   }
 }
 
-function printButton() {
-  let cleaner = document.querySelector(".instruction");
-  cleaner.innerHTML = "";
-  let print = document.querySelector(".form1");
-  button2.style.display = "block";
-  button3.style.display = "block";
-}
 
 function refresh() {
   let list = document.querySelector(".posts");
   list.innerHTML = "";
 }
 
-function buttonClick2() {
+function SortMore() {
   refresh();
   newData.sort((a, b) => b.price - a.price);
   print();
 }
 
-function buttonClick3() {
+function SortLess() {
   refresh();
   newData.sort((a, b) => a.price - b.price);
   print();
